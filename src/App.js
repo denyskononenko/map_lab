@@ -5,6 +5,7 @@ import './App.css';
 import data from "./data/kindergartes_info_osm_proc.json";
 import turf from 'turf'
 import { thisExpression } from '@babel/types';
+import { isAbsolute } from 'path';
 
 const geojson = data;
 /*{
@@ -95,6 +96,31 @@ const colorInactive = "#D3D3D3"
 const Map = ReactMapboxGl({
   accessToken: 'pk.eyJ1IjoiZGVuaXNrb25vbmVua28iLCJhIjoiY2pnY2QwanM4MDJuYjJxdGN6cWN4d2dkcSJ9.uih5MR-tgpbVwBsooCFhgw'
 });
+
+class MapOverlay extends React.Component {
+  constructor(props){
+    super(props);
+    this.style = {
+      fontFamily: "Roboto", 
+      fontSize: "12px",
+      color: colorTextActive,
+      backgroundColor: "#fff",
+      borderRadius: "3px",
+      position: "absolute",
+      padding: "10px",
+      top: "10px",
+      left: "10px",
+      height: "20px"
+    }
+  }
+  render(){
+    return(
+      <div style={this.style}>
+        <div>Kindergartens number in the circle area of <b>{this.props.radii}</b> km radii:  <b>{this.props.number}</b></div>
+      </div>
+    )
+  }
+}
 
 class LegendItem extends React.Component {
   constructor(props){
@@ -228,7 +254,26 @@ class MapComponent extends React.Component {
                   showMap: false,
                   zoom: [15],
                   center: [30.4506825, 50.382702],
-                  renderedData: {}
+                  renderedData: {
+                    "type": "FeatureCollections",
+                    "features": [
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "name": "129",
+                          "childrens": 20,
+                          "places": 29,
+                          "reserved": 5,
+                          "free": 4
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            30.628101825714094,
+                            50.45005475483897
+                          ]
+                        }
+                      }]}
                 };
   }
 
@@ -296,6 +341,7 @@ class MapComponent extends React.Component {
       <RotationControl position="bottom-right"/>
       <ZoomControl position="bottom-right"/>
       {this.state.showMap && <InfoLayer geojson={this.state.renderedData}/>}
+      <MapOverlay radii={2} number={this.state.renderedData.features.length}/>
       </Map>
     );
   }
