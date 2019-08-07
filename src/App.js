@@ -3,9 +3,7 @@ import ReactMapboxGl, { Popup, RotationControl, ZoomControl} from 'react-mapbox-
 import PieChart from 'react-minimal-pie-chart';
 import './App.css';
 import data from "./data/kindergartes_info_osm_proc.json";
-import turf from 'turf'
-import { thisExpression } from '@babel/types';
-import { isAbsolute } from 'path';
+import * as turf from '@turf/turf'
 
 const geojson = data;
 /*{
@@ -80,7 +78,7 @@ const geojson = data;
       }
     }
   ]
-}*/
+};*/
 
 // colors for sectors in donout chart
 const colorFree = "#E38627";
