@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a45a4c0c517412294ee486d2858c23e0",
+    "revision": "9b653f48545270f4f9e77c7bb35e910e",
     "url": "/map_lab/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/map_lab/static/css/2.6639d161.chunk.css"
   },
   {
-    "revision": "b59b6d0fd053636b5207",
+    "revision": "a628026c8e4eb3173770",
     "url": "/map_lab/static/css/main.ad9543ac.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/map_lab/static/js/2.fd611a67.chunk.js"
   },
   {
-    "revision": "b59b6d0fd053636b5207",
-    "url": "/map_lab/static/js/main.8a22e669.chunk.js"
+    "revision": "a628026c8e4eb3173770",
+    "url": "/map_lab/static/js/main.a3a9c293.chunk.js"
   },
   {
     "revision": "5130d3baba67705d6b0b",
